@@ -58,7 +58,8 @@ const ResumeSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-const Resume = mongoose.model('Resume', ResumeSchema);
+// Check if model exists before creating (serverless compatibility)
+const Resume = mongoose.models.Resume || mongoose.model('Resume', ResumeSchema);
 
 /* -------------------- UPLOAD CONFIG -------------------- */
 const UPLOAD_DIR = path.join(__dirname, 'uploads');
