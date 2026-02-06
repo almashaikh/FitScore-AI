@@ -9,5 +9,6 @@ const resumeSchema = new mongoose.Schema({
   uploadDate: { type: Date, default: Date.now }
 }, { timestamps: true });
 
-const Resume = mongoose.model('Resume', resumeSchema);
+// Check if model exists before creating (serverless compatibility)
+const Resume = mongoose.models.Resume || mongoose.model('Resume', resumeSchema);
 module.exports = Resume;

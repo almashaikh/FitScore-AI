@@ -24,6 +24,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model('User', userSchema);
+// Check if model exists before creating (serverless compatibility)
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 module.exports = User;
