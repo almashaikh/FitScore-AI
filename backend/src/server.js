@@ -30,8 +30,22 @@ function cosineSimilarity(a, b) {
 }
 
 /* -------------------- MIDDLEWARE -------------------- */
+// Allow multiple origins for CORS (local dev + production)
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://fit-score-ai.vercel.app',
+  process.env.CORS_ORIGIN
+].filter(Boolean);
+
 app.use(cors({ 
-  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true 
 }));
 app.use(bodyParser.json());
