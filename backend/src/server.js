@@ -9,7 +9,6 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const OpenAI = require('openai');
-const pdf = require('pdf-parse');
 
 
 const app = express();
@@ -80,37 +79,28 @@ const upload = multer({
 
 /* -------------------- ROUTES -------------------- */
 
-/* UPLOAD RESUME (PDF → TEXT → DB) */
+/* UPLOAD RESUME (PDF STORAGE ONLY - Use text input for analysis) */
 app.post('/api/upload', upload.single('resume'), async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    let extractedText = '';
-
-    // Try native PDF text extraction
-    try {
-      const buffer = fs.readFileSync(req.file.path);
-      const parsed = await pdf(buffer);
-      extractedText = parsed.text || '';
-    } catch (err) {
-      console.warn('PDF parsing failed:', err.message);
-      extractedText = '';
-    }
-
+    // Note: PDF text extraction doesn't work on Vercel serverless
+    // Users should paste resume text directly in the analyze page for best results
+    
     const resume = await Resume.create({
       originalName: req.file.originalname,
       filename: req.file.filename,
       path: req.file.path,
       size: req.file.size,
-      text: extractedText.trim()
+      text: '' // PDF processing disabled on serverless - use text input instead
     });
 
     res.json({
       success: true,
       id: resume._id,
-      textLength: extractedText.length
+      message: 'Resume uploaded. Please paste your resume text in the Analyze page for accurate scoring.'
     });
 
   } catch (err) {
