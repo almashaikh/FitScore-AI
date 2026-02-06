@@ -105,7 +105,7 @@ app.get('/', (req, res) => {
   res.json({ 
     status: 'ok', 
     message: 'FitScore-AI Backend API is running',
-    endpoints: ['/api/upload', '/api/resumes', '/api/analyze']
+    endpoints: ['/api/auth/register', '/api/auth/login', '/api/upload', '/api/resumes', '/api/analyze']
   });
 });
 
