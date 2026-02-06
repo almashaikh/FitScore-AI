@@ -32,7 +32,10 @@ function cosineSimilarity(a, b) {
 }
 
 /* -------------------- MIDDLEWARE -------------------- */
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ 
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+  credentials: true 
+}));
 app.use(bodyParser.json());
 
 const limiter = rateLimit({
@@ -252,4 +255,11 @@ app.post('/api/analyze', async (req, res) => {
 
 
 /* -------------------- START -------------------- */
-app.listen(5000, () => console.log('🚀 Server running on 5000'));
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+}
+
+// Export for Vercel serverless
+module.exports = app;

@@ -21,6 +21,7 @@ FitScore AI is an intelligent resume analyzer that helps job seekers understand 
 - [Project Structure](#-project-structure)
 - [API Endpoints](#-api-endpoints)
 - [How It Works](#-how-it-works)
+- [Deployment](#-deployment)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -339,6 +340,46 @@ Design-heavy PDFs (with graphics, columns, or unusual formatting) may not extrac
 - ✅ Copy text from Word/Google Docs
 - ✅ Use LinkedIn's PDF export
 - ✅ Paste plain text directly into the analyzer
+
+---
+
+## 🚀 Deployment
+
+### Deploy to Vercel
+
+FitScore AI can be deployed to Vercel in minutes!
+
+**📖 [Complete Deployment Guide](DEPLOYMENT.md)**
+
+### Quick Deploy Steps:
+
+1. **Set up MongoDB Atlas** (free tier)
+2. **Deploy Backend to Vercel**
+   - Add environment variables (MongoDB URI, OpenAI API key, JWT secret)
+3. **Deploy Frontend to Vercel**
+   - Add backend API URL as environment variable
+4. **Update CORS** settings in backend
+
+### Environment Variables Needed:
+
+**Backend:**
+```env
+MONGO_URI=mongodb+srv://...
+OPENAI_API_KEY=sk-...
+JWT_SECRET=your_secret
+CORS_ORIGIN=https://your-frontend.vercel.app
+```
+
+**Frontend:**
+```env
+VITE_API_BASE_URL=https://your-backend.vercel.app
+```
+
+### Alternative Hosting:
+- **Frontend:** Vercel, Netlify, Cloudflare Pages
+- **Backend:** Railway, Render, Heroku, DigitalOcean
+
+For detailed step-by-step instructions, troubleshooting, and best practices, see the **[DEPLOYMENT.md](DEPLOYMENT.md)** guide.
 
 ---
 
