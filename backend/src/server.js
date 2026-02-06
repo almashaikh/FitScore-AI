@@ -62,8 +62,9 @@ const ResumeSchema = new mongoose.Schema({
 const Resume = mongoose.models.Resume || mongoose.model('Resume', ResumeSchema);
 
 /* -------------------- UPLOAD CONFIG -------------------- */
-const UPLOAD_DIR = path.join(__dirname, 'uploads');
-if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR);
+// Use /tmp in serverless environments (Vercel), fallback to local uploads for development
+const UPLOAD_DIR = process.env.VERCEL ? '/tmp' : path.join(__dirname, 'uploads');
+if (!process.env.VERCEL && !fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR);
 
 const upload = multer({
   storage: multer.diskStorage({
