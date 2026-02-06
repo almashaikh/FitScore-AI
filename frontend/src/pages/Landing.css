@@ -1,0 +1,135 @@
+/* =========================
+   ROOT
+========================= */
+.landing-root {
+  min-height: 100vh;
+  padding: 0 60px;
+  background: linear-gradient(180deg, #f8fff9 0%, #ffffff 45%);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.logo span {
+  color: #16a34a;
+}
+
+.nav-links a {
+  margin: 0 16px;
+  font-size: 14px;
+  color: #475569;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #0f172a;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-primary {
+  background: #16a34a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.btn-outline:hover {
+  background: #f1f5f9;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  padding: 100px 20px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-inner {
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 6px 14px;
+  background: #dcfce7;
+  color: #15803d;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Headline */
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.hero h1 span {
+  color: #16a34a;
+}
+
+/* Subtext */
+.hero-subtext {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #475569;
+}
+
+/* CTA buttons */
+.hero-actions {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Footer text */
+.hero-foot {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #64748b;
+}

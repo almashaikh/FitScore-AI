@@ -1,0 +1,299 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(180deg, #f8fff9 0%, #ffffff 40%);
+  color: #0f172a;
+}
+
+/* APP CARD WRAPPER */
+.app-page {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* RESULT BOX */
+.result-box {
+  padding: 24px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* -----------------------------
+   INPUTS
+------------------------------ */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  margin-top: 6px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #16a34a;
+}
+
+/* PRIMARY TEXTAREA (resume paste) */
+textarea.primary-input {
+  border: 2px solid #bbf7d0;
+  background: #f0fdf4;
+}
+
+/* -----------------------------
+   BUTTONS
+------------------------------ */
+button {
+  background: #16a34a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: #15803d;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* -----------------------------
+   CONFIDENCE BADGES
+------------------------------ */
+.confidence-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.confidence-low {
+  background: #fed7aa;
+  color: #7c2d12;
+}
+
+.confidence-medium {
+  background: #fde68a;
+  color: #92400e;
+}
+
+.confidence-high {
+  background: #bbf7d0;
+  color: #15803d;
+}
+
+.confidence-excellent {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* -----------------------------
+   MATCHED SKILLS CHIPS
+------------------------------ */
+.skill-chip {
+  padding: 4px 10px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* -----------------------------
+   APP NAVBAR
+------------------------------ */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.app-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #16a34a;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Nav links */
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.app-nav a {
+  font-size: 14px;
+  color: #475569;
+  text-decoration: none;
+}
+
+.app-nav a:hover {
+  color: #0f172a;
+}
+
+/* Buttons */
+.nav-button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.nav-button.ghost {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.nav-button.primary {
+  background: #16a34a;
+  color: white;
+}
+
+.nav-button.primary:hover {
+  background: #15803d;
+}
+
+/* -----------------------------
+   AUTH PAGES
+------------------------------ */
+.auth-wrapper {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f8fff9 0%, #ffffff 50%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auth-subtitle {
+  margin-top: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-group input {
+  margin-top: 6px;
+}
+
+/* Button */
+.auth-button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  background: #16a34a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background: #15803d;
+}
+
+/* Footer */
+.auth-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #475569;
+  text-align: center;
+}
+
+.auth-footer a {
+  color: #16a34a;
+  font-weight: 500;
+  text-decoration: none;
+}

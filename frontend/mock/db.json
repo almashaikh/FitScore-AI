@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "pass"
+    },
+    {
+      "id": "f37f",
+      "name": "abc",
+      "email": "abc@gmail.com",
+      "password": "12345"
+    }
+  ],
+  "resumes": [
+    {
+      "id": "1",
+      "userId": 1,
+      "filename": "sample_resume.pdf",
+      "text": "John Doe\nSkills: JavaScript, HTML, CSS",
+      "uploadDate": "2025-12-01T10:00:00Z"
+    },
+    {
+      "id": "cbd7",
+      "userId": null,
+      "filename": "3._supervised_learning.pdf",
+      "text": "Mock parsed text from 3._supervised_learning.pdf\n\nSkills:\n- JavaScript\n- HTML\n- CSS\n\nExperience:\n- Personal projects using vanilla JS.",
+      "uploadDate": "2025-12-06T16:34:57.298Z"
+    },
+    {
+      "id": "53b3",
+      "userId": null,
+      "filename": "Almas_Shaikh_VIIT.pdf",
+      "text": "Mock parsed text from Almas_Shaikh_VIIT.pdf\n\nSkills:\n- JavaScript\n- HTML\n- CSS\n\nExperience:\n- Personal projects using vanilla JS.",
+      "uploadDate": "2025-12-06T16:35:43.423Z"
+    }
+  ],
+  "analyses": [
+    {
+      "id": "f6cf",
+      "resumeId": "53b3",
+      "jdText": "We are looking for a detail-oriented Data Scientist/Data Analyst who can turn raw data into meaningful insights. The ideal candidate will be responsible for acquiring, processing, analyzing, and visualizing data to support strategic business decisions.",
+      "score": 40,
+      "matchedSkills": [],
+      "missingSkills": [],
+      "suggestions": [
+        "Nice! Your resume covers core skills — emphasize achievements."
+      ],
+      "createdAt": "2025-12-06T16:37:12.560Z"
+    }
+  ]
+}
