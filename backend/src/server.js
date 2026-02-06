@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-const pdfPoppler = require('pdf-poppler');
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
