@@ -10,6 +10,8 @@ const rateLimit = require('express-rate-limit');
 const bodyParser = require('body-parser');
 const OpenAI = require('openai');
 
+// Import auth routes
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -94,6 +96,9 @@ const upload = multer({
 });
 
 /* -------------------- ROUTES -------------------- */
+
+/* Mount auth routes */
+app.use('/api/auth', authRoutes);
 
 /* Health check / Root route */
 app.get('/', (req, res) => {
