@@ -81,6 +81,15 @@ const upload = multer({
 
 /* -------------------- ROUTES -------------------- */
 
+/* Health check / Root route */
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'FitScore-AI Backend API is running',
+    endpoints: ['/api/upload', '/api/resumes', '/api/analyze']
+  });
+});
+
 /* UPLOAD RESUME (PDF STORAGE ONLY - Use text input for analysis) */
 app.post('/api/upload', upload.single('resume'), async (req, res) => {
   try {
