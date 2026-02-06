@@ -7,13 +7,16 @@ const User = require('../models/User');
 
 // helper to create JWT
 const signToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
+  const secret = process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
+  return jwt.sign({ userId }, secret, { expiresIn: '7d' });
 };
 
 // POST /api/auth/register
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
+
+    console.log('Registration attempt:', { name, email });
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: 'All fields are required.' });
@@ -24,13 +27,17 @@ exports.register = async (req, res) => {
       return res.status(409).json({ message: 'Email already registered.' });
     }
 
+    console.log('Hashing password...');
     const hash = await bcrypt.hash(password, 10);
+    console.log('Password hashed successfully');
 
+    console.log('Creating user...');
     const user = await User.create({
       name,
       email,
       passwordHash: hash
     });
+    console.log('User created:', user._id);
 
     const token = signToken(user._id);
 
@@ -44,7 +51,11 @@ exports.register = async (req, res) => {
     });
   } catch (err) {
     console.error('Register error:', err);
-    res.status(500).json({ message: 'Server error during registration.' });
+    console.error('Error stack:', err.stack);
+    res.status(500).json({ 
+      message: 'Server error during registration.',
+      error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
   }
 };
 
