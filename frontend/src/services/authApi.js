@@ -6,7 +6,7 @@
 import axios from 'axios';
 
 const authApi = axios.create({
-  baseURL: 'http://localhost:5000/api',  // our Node backend
+  baseURL: (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000') + '/api',
   timeout: 15000
 });
 
